@@ -3,7 +3,7 @@ LIBDIR=/usr/lib
 SYSCONFDIR=/etc
 LIBEXECDIR=/usr/libexec
 BINDIR=/usr/bin
-PACKAGE = ${PKGNAME}_${VERSION}_${REVISION}_@${CATEGORIES}
+PACKAGE = ${PKGNAME}-${VERSION}-${REVISION}@${CATEGORIES}
 
 download:
 ifeq ($(SRCCD),archive)
