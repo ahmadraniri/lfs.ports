@@ -30,8 +30,8 @@ endif
 extract:
 	tar -xvf ${ARCHIVE} 
 
-prepare:
-	${PREPARE}
+# prepare:
+# 	${PREPARE}
 
 build:
 ifeq ($(BUILD),meson)
