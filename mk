@@ -24,8 +24,15 @@ view:
 
 help:
 	@echo -e "\n\
-   help			show this help. \n\
-   list			show installed packages. \n\
-   content PKG=package	show package contents. \n\
-   search q=query	search package. \n\
-   view PKG=package	view package Makefile. \n"
+   \033[1mhelp, h\033[0m			show this help. \n\
+   \033[1mlist, l\033[0m			show installed packages. \n\
+   \033[1mcontent, c PKG=package\033[0m	show package contents. \n\
+   \033[1msearch, s q=query\033[0m		search package. \n\
+   \033[1mview, v PKG=package\033[0m		view package Makefile. \n"
+
+# target alias
+l: list
+c: content
+s: search
+v: view
+h: help
