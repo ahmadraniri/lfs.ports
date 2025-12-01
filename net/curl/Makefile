@@ -11,8 +11,6 @@ BUILD = make
 BUILDDIR = curl-${VERSION}
 BUILD_OPTION =
 POST_BUILD =
-PREPARE = patch -p1 -d ${BUILDDIR} -i $(PWD)/reg-19408.patch; \
-	patch -p1 -d ${BUILDDIR} -i $(PWD)/reg-19383.patch 
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--libdir=/usr/lib \
@@ -25,5 +23,9 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--without-libssh2 \
 	--with-openssl \
 	--with-libidn2)
+
+prepare:
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/reg-19408.patch; \
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/reg-19383.patch 
 
 include /usr/share/mk/lfs.port.mk
