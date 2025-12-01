@@ -56,19 +56,19 @@ ifeq ($(BUILD),meson)
 	@echo "Mode: Package Meson"
 	meson install --no-rebuild -C build --destdir package
 	install  -Dm644 $(PWD)/Makefile $(PWD)/build/package/var/lib/mk/${PACKAGE}.mk
-	$(POST_BUILD)
+	$(MAKE) post_build
 	tar -C build/package -cvf ${PACKAGE}.tar.gz .
 else ifeq ($(BUILD),make)
 	@echo "Mode: Package Make"
 	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} DESTDIR="$(PWD)/package" install
 	install  -Dm644 $(PWD)/Makefile $(PWD)/package/var/lib/mk/${PACKAGE}.mk
-	$(POST_BUILD)
+	$(MAKE) post_build
 	tar -C package -cvf ${PACKAGE}.tar.gz .
 else ifeq ($(BUILD),cmake)
 	@echo "Mode: Package Cmake"
 	DESTDIR="package" cmake --install build
 	install  -Dm644 $(PWD)/Makefile $(PWD)/package/var/lib/mk/${PACKAGE}.mk
-	$(POST_BUILD)
+	$(MAKE) post_build
 	tar -C package -cvf ${PACKAGE}.tar.gz .
 else
 	$(error Unknown BUILD: ${BUILD}. Valid options are 'meson', 'make', or 'cmake')

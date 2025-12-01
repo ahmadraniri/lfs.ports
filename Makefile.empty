@@ -14,4 +14,8 @@ POST_BUILD =
 PREPARE =
 AUTO_CONF =
 
+prepare:
+
+post_build:
+
 include /usr/share/mk/lfs.port.mk

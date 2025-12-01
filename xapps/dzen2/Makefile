@@ -11,9 +11,11 @@ SRCCD = archive
 BUILD = make
 BUILDDIR = dzen-${_VERSION}
 BUILD_OPTION =
-POST_BUILD = make -j4 -C ${BUILDDIR}/gadgets  
 
 prepare:
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/0001-Enable-Xinerama-and-XPM.patch
+
+post_build:
+	make -j4 -C ${BUILDDIR}/gadgets  
 
 include /usr/share/mk/lfs.port.mk

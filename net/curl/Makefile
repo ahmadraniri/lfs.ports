@@ -10,7 +10,6 @@ SRCCD = archive
 BUILD = make
 BUILDDIR = curl-${VERSION}
 BUILD_OPTION =
-POST_BUILD =
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--libdir=/usr/lib \
@@ -27,5 +26,7 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 prepare:
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/reg-19408.patch
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/reg-19383.patch 
+
+post_build:
 
 include /usr/share/mk/lfs.port.mk

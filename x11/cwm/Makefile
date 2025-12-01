@@ -10,6 +10,8 @@ SRCCD = archive
 BUILD = make
 BUILDDIR = cwm-${VERSION}
 BUILD_OPTION =
-POST_BUILD = install -Dm644 cwm.desktop package/usr/share/xsessions/cwm.desktop 
+
+post_build:
+	install -Dm644 cwm.desktop package/usr/share/xsessions/cwm.desktop 
 
 include /usr/share/mk/lfs.port.mk
