@@ -10,5 +10,6 @@ SRCCD = archive
 BUILD = meson
 BUILDDIR = wayland-protocols-${VERSION}
 BUILD_OPTION = -Dtests=false
+MKINST = yes
 
 include /usr/share/mk/lfs.port.mk

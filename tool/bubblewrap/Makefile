@@ -10,5 +10,6 @@ SRCCD = archive
 BUILD = meson
 BUILDDIR = bubblewrap-${VERSION}
 BUILD_OPTION = "-Drequire_userns=true"
+MKINST = yes
 
 include /usr/share/mk/lfs.port.mk

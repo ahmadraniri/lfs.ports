@@ -10,6 +10,7 @@ ARCHIVE = ${_VERSION}.tar.gz
 SRCCD = archive
 BUILD = make
 BUILDDIR = dzen-${_VERSION}
+MKINST = yes
 BUILD_OPTION =
 
 prepare:

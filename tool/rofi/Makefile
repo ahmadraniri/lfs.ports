@@ -11,6 +11,7 @@ SRCCD = archive
 BUILD = meson
 BUILDDIR = rofi-${_VER}
 BUILD_OPTION = -Dxcb=enabled -Dwayland=enabled
+MKINST = yes
 
 prepare:
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/rofi-sensible-terminal-use-sh.patch

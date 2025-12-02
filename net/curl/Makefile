@@ -10,6 +10,7 @@ SRCCD = archive
 BUILD = make
 BUILDDIR = curl-${VERSION}
 BUILD_OPTION =
+MKINST = yes
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--libdir=/usr/lib \

@@ -9,6 +9,7 @@ ARCHIVE = feh-${VERSION}.tar.bz2
 SRCCD = archive
 BUILD = make
 BUILDDIR = feh-${VERSION}
-MAKEFLAGS = "curl=1 exif=1 inotify=1 stat64=1 magic=1"
+MAKEOPT = "curl=1 exif=1 inotify=1 stat64=1 magic=1"
+MKINST = yes
 
 include /usr/share/mk/lfs.port.mk

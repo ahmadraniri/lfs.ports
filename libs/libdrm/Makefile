@@ -9,6 +9,7 @@ ARCHIVE = libdrm-2.4.129.tar.xz
 SRCCD = archive
 BUILD = meson
 BUILDDIR = libdrm-${VERSION}
+MKINST = yes
 BUILD_OPTION = --prefix=${PREFIX} \
 	--libdir=${LIBDIR} \
 	--buildtype=release \

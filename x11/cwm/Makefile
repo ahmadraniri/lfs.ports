@@ -9,6 +9,7 @@ ARCHIVE = cwm-${VERSION}.tar.gz
 SRCCD = archive
 BUILD = make
 BUILDDIR = cwm-${VERSION}
+MKINST = yes
 BUILD_OPTION =
 
 post_build:
