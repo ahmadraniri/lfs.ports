@@ -10,7 +10,7 @@ list:
 		| awk -F "-" '{print $$1,$$2}' | sort
 
 content:
-	@find /usr/pkg/${PKG}-* -printf '%P\n'| sed 1d
+	@find /usr/pkg/${PKG}-* -printf '${PKG} : /%P\n'| sed 1d
 
 search:
 	@find /var/lib/mk/ \
