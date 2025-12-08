@@ -66,6 +66,33 @@ remove:
 	@echo "removing the ${PKG} directory ..."
 	rm -rf ${PKG}
 
+upgrade:
+	@echo "Installing package archive ${PKG}"
+	@echo "Pruning any conflict from previous package ..."
+	graft -p -D -u -t / /usr/pkg/$(shell basename -s .tar.gz ${PKG} | cut -d "-" -f 1)-*
+
+	@echo "Disabling links ..."
+	graft -d -D -u -t / /usr/pkg/$(shell basename -s .tar.gz ${PKG} | cut -d "-" -f 1)-*
+
+	@echo "Removing previous package directory ..."
+	rm -rf /usr/pkg/$(shell basename -s .tar.gz ${PKG} | cut -d "-" -f 1)-*
+
+	@echo "Begin installing upgrade ..."
+	@echo "Installing package archive ${PKG}"
+	@echo "make directory for $(shell basename -s .tar.gz ${PKG})"
+	mkdir /usr/pkg/$(shell basename -s .tar.gz ${PKG})
+
+	@echo "extracting & grafting package archive ${PKG}"
+	tar -xf ${PKG} -C /usr/pkg/$(shell basename -s .tar.gz ${PKG})
+	graft -i -P -t / /usr/pkg/$(shell basename -s .tar.gz ${PKG})
+
+	echo "Run post-install target if available"
+	@if $(MAKE) -f /usr/pkg/${package}/var/lib/mk/${package}.mk -n post-install > /dev/null; then \
+		$(MAKE) -f /usr/pkg/${package}/var/lib/mk/${package}.mk post-install; \
+	else \
+		echo "No post-install target available."; \
+	fi
+
 # target alias
 l: list
 c: content
@@ -75,3 +102,4 @@ h: help
 a: install
 i: info
 r: remove
+u: upgrade
