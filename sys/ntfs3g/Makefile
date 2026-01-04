@@ -1,6 +1,6 @@
 COMMENT = Drivers and utilities for the NTFS file system.
 VERSION = 2022.10.3
-REVISION = 0
+REVISION = 1
 CATEGORIES = sys
 PKGNAME = ntfs3g
 HOMEPAGE = https://www.tuxera.com/community/open-source-ntfs-3g/
@@ -19,6 +19,7 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--enable-xattr-mappings \
 	--enable-crypto \
 	--with-fuse=internal \
+	--without-hd \
 	--disable-ldconfig \
 	--build=x86_64-pc-linux-musl \
 	rootbindir=/usr/bin \
