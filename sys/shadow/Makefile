@@ -1,14 +1,14 @@
 COMMENT = The shadow tool suite.
-VERSION = 4.18.0
+VERSION = 4.19.0
 REVISION = 0
 CATEGORIES = sys
 PKGNAME = shadow
 HOMEPAGE = https://pkg-shadow.alioth.debian.org
-ARCHIVE = shadow-4.18.0.tar.xz
-LINK = https://github.com/shadow-maint/shadow/releases/download/4.18.0/shadow-4.18.0.tar.xz
+ARCHIVE = shadow-4.19.0.tar.xz
+LINK = https://github.com/shadow-maint/shadow/releases/download/4.19.0/shadow-4.19.0.tar.xz
 SRCCD = archive
 BUILD = make
-BUILDDIR = shadow-4.18.0
+BUILDDIR = shadow-4.19.0
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
@@ -27,6 +27,7 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--without-libbsd \
 	--without-group-name-max-length \
 	--with-fcaps \
+	--disable-logind \
 	--build=x86_64-pc-linux-musl)
 MAKEOPT =
 
