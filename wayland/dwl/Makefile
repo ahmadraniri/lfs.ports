@@ -11,7 +11,7 @@ BUILD = make
 BUILDDIR = dwl
 
 prepare:
-	patch -p1 -d ${BUILDDIR} -i $(PWD)/00_vanity-gaps_commit_6cd26568.patch
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/00_vanity-gaps_commit_9b11a49c.patch
 
 post_build:
 
