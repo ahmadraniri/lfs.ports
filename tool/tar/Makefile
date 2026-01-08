@@ -1,6 +1,6 @@
 COMMENT = Utility used to store, backup, and transport files
 VERSION = 1.35
-REVISION = 0
+REVISION = 1
 CATEGORIES = tool
 PKGNAME = tar
 HOMEPAGE = https://www.gnu.org/software/tar/
@@ -16,6 +16,7 @@ AUTO_CONF = (cd ${BUILDDIR} && \
 	--prefix=/usr \
 	--sysconfdir=/etc \
 	--libdir=/usr/lib \
+	--without-selinux \
 	--build=x86_64-pc-linux-musl)
 
 prepare:
