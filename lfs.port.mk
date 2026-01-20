@@ -96,13 +96,13 @@ install-package:
 	graft -i -P -t / /usr/pkg/$(shell basename -s .tar.gz ${PKG})
 
 info-package:
-	@echo "Package : $(PKGNAME)"
-	@echo "Description : $(COMMENT)"
-	@echo "Version : $(VERSION)"
-	@echo "Revision : $(REVISION)"
-	@echo "Categories : $(CATEGORIES)"
-	@echo "Homepage : $(HOMEPAGE)"
-	@echo "Archive : $(ARCHIVE)"
-	@echo "Link : $(LINK)"
-	@echo "Source code : $(SRCCD)"
-	@echo "Build type : $(BUILD)"
+	@echo "Package		: $(PKGNAME)"
+	@echo "Description	: $(COMMENT)"
+	@echo "Version		: $(VERSION)"
+	@echo "Revision	: $(REVISION)"
+	@echo "Categories	: $(CATEGORIES)"
+	@echo "Homepage	: $(HOMEPAGE)"
+	@echo "Archive		: $(ARCHIVE)"
+	@echo "Link		: $(LINK)"
+	@echo "Source code	: $(SRCCD)"
+	@echo "Build type	: $(BUILD)"
