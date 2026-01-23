@@ -1,0 +1,27 @@
+#!/bin/bash
+
+_mk_completions() {
+    local cur pkgs prev first_arg
+
+	  pkgs=$(mk l | awk '{print $1}')
+    _options="c content h help i info a install l list r remove s search u upgade v view"
+
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    first_arg="${COMP_WORDS[1]}"
+
+    if [[ ${COMP_CWORD} -eq 1 ]]; then
+	    COMPREPLY=( $(compgen -W "$_options" -- ${cur}) )
+	    return 0
+    fi
+
+    if [[ "$cur" != *=* ]]; then
+        COMPREPLY=( $(compgen -W "$pkgs" -- "$cur") )
+        
+        if [ type compopt &>/dev/null ]; then
+            compopt -o nospace
+        fi
+    fi
+}
+
+complete -F _mk_completions mk
