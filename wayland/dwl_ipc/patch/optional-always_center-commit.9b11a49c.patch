@@ -1,0 +1,11 @@
+--- dwl/dwl.c	2026-01-27 17:45:29.498406148 +0700
++++ dwl/dwl.c.new	2026-01-27 17:47:10.046058705 +0700
+@@ -2902,6 +2902,8 @@
+ 		/* Make sure window actually overlaps with the monitor */
+ 		resize(c, c->geom, 0);
+ 		c->tags = newtags ? newtags : m->tagset[m->seltags]; /* assign tags of target monitor */
++		c->prev.x = (m->w.width - c->prev.width) / 2 + m->m.x;
++		c->prev.y = (m->w.height - c->prev.height) / 2 + m->m.y;
+ 		if (c->foreign_toplevel)
+ 			wlr_foreign_toplevel_handle_v1_output_enter(c->foreign_toplevel, m->wlr_output);
+ 		setfullscreen(c, c->isfullscreen); /* This will call arrange(c->mon) */

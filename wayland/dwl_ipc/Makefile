@@ -1,6 +1,7 @@
-COMMENT = dwm for Wayland with ipc patch and gaps + foreign-toplevel + menu (optional) 
+COMMENT = dwm for Wayland with ipc patch and \
+	gaps + foreign-toplevel + menu + always center (optional) 
 VERSION = v0.8.c9b11a49c
-REVISION = 4
+REVISION = 5
 CATEGORIES = wayland
 PKGNAME = dwl_ipc
 HOMEPAGE = https://codeberg.org/dwl/dwl
@@ -34,6 +35,13 @@ ifeq ($(MENU),YES)
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/patch/optional-menu-commit.9b11a49c.patch
 else
 	@echo "skipping applying menu patch."
+endif
+
+ifeq ($(CENTER),YES)
+	@echo "applying always-center patch."
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/patch/optional-always_center-commit.9b11a49c.patch
+else
+	@echo "skipping applying always_center patch."
 endif
 
 config:
