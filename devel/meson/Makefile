@@ -1,5 +1,5 @@
 COMMENT =A high performance build system
-VERSION =1.9.1
+VERSION =1.9.2
 REVISION =0
 CATEGORIES =devel
 PKGNAME =meson

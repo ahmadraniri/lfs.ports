@@ -1,0 +1,11 @@
+--- cwcwm-0.3.0/cwctl/gen.py.orig	2026-02-12 07:18:52.327245455 +0700
++++ cwcwm-0.3.0/cwctl/gen.py	2026-02-12 07:36:36.161420195 +0700
+@@ -13,7 +13,7 @@
+ 
+ 
+ for p in sys.argv[1:-1]:
+-    path = re.sub("[^0-9a-zA-Z]+", "_", p)
++    path = re.sub("[^0-9a-zA-Z]+", "_",p.removeprefix('../cwcwm-c4de6dcb89a9960b0a69e00ecbf83fe2875f9fd3'))
+ 
+     with open(p, "rb") as f:
+         data = f.read()
