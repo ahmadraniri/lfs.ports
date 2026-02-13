@@ -1,0 +1,10 @@
+--- src/core/client/ClientSocket.cpp	2026-02-04 18:08:13.000000000 +0700
++++ src/core/client/ClientSocket.cpp.new	2026-02-09 17:48:38.893476192 +0700
+@@ -24,6 +24,7 @@
+ 
+ #include <filesystem>
+ #include <hyprutils/utils/ScopeGuard.hpp>
++#include <cstring>
+ 
+ using namespace Hyprwire;
+ using namespace Hyprutils::OS;
