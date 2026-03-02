@@ -1,0 +1,13 @@
+--- neumenu/neumenu_path	2026-02-25 05:34:42.723693457 +0700
++++ neumenu/neumenu_path.new	2026-02-25 05:34:37.990486250 +0700
+@@ -6,8 +6,8 @@
+ [ ! -e "$cachedir" ] && mkdir -p "$cachedir"
+ 
+ IFS=:
+-if stest -dqr -n "$cache" $PATH; then
+-	stest -flx $PATH | sort -u | tee "$cache"
++if stest-neumenu -dqr -n "$cache" $PATH; then
++	stest-neumenu -flx $PATH | sort -u | tee "$cache"
+ else
+ 	cat "$cache"
+ fi
