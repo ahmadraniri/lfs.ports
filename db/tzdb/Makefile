@@ -1,14 +1,14 @@
 COMMENT = Time zone database.
-VERSION = 2025c
+VERSION = 2026a
 REVISION = 0
 CATEGORIES = db
 PKGNAME = tzdb
 HOMEPAGE = https://www.iana.org/time-zones
-ARCHIVE = tzdb-2025c.tar.lz
-LINK = https://data.iana.org/time-zones/releases/tzdb-2025c.tar.lz
+ARCHIVE = tzdb-2026a.tar.lz
+LINK = https://data.iana.org/time-zones/releases/tzdb-2026a.tar.lz
 SRCCD = archive
 BUILD = make
-BUILDDIR = tzdb-2025c
+BUILDDIR = tzdb-2026a
 MAKEOPT = TOPDIR=/ \
 	TZDIR=/etc/zoneinfo \
 	ETCDIR=/usr/sbin \
