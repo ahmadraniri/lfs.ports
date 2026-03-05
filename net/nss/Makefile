@@ -1,15 +1,15 @@
 COMMENT = Network security services.
-VERSION = 3.119.1
-_VERSION = 3_119_1
+VERSION = 3.121
+_VERSION = 3_121
 REVISION = 0
 CATEGORIES = net
 PKGNAME = nss
 HOMEPAGE = https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS
-ARCHIVE = nss-3_119_1.tar.gz
-LINK = https://archive.mozilla.org/pub/security/nss/releases/NSS_3_119_1_RTM/src/${ARCHIVE}
+ARCHIVE = nss-3.121.tar.gz
+LINK = https://archive.mozilla.org/pub/security/nss/releases/NSS_3_121_RTM/src/${ARCHIVE}
 SRCCD = archive
 BUILD = make
-BUILDDIR = nss-${_VERSION}/nss
+BUILDDIR = nss-${VERSION}/nss
 MKINST = no
 MAKEOPT = BUILD_OPT=1 \
 	NSS_DISABLE_GTESTS=1 \
