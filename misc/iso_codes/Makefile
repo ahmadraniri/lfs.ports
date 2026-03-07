@@ -1,22 +1,16 @@
 COMMENT = ISO country, language, script and currency codes and translations.
-VERSION = 4.19.0
-COMMIT = 0f3a862394265a31d8465fc5e627d6429bbd8394 
+VERSION = 4.20.1
+COMMIT = 74623235ae99f6e835e1e465017ce4c544ae6b53
 REVISION = 0
 CATEGORIES = misc
 PKGNAME = iso_codes
 HOMEPAGE = https://salsa.debian.org/iso-codes-team/iso-codes
-ARCHIVE = iso-codes-4.19.0.tar.bz2
-LINK = https://salsa.debian.org/iso-codes-team/iso-codes/-/archive/v4.19.0/iso-codes-4.19.0.tar.bz2
+ARCHIVE = iso-codes-4.20.1.tar.bz2
+LINK = https://salsa.debian.org/iso-codes-team/iso-codes/-/archive/v4.20.1/iso-codes-4.20.1.tar.bz2
 SRCCD = archive
-BUILD = make
+BUILD = meson
 BUILDDIR = iso-codes-v${VERSION}-${COMMIT}
 BUILD_OPTION =
-AUTO_CONF = (cd ${BUILDDIR} && ./configure \
-	--prefix=/usr \
-	--sysconfdir=/etc \
-	--libdir=/usr/lib \
-	--build=x86_64-pc-linux-musl)
-MAKEOPT =
 
 prepare:
 
