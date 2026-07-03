@@ -1,14 +1,14 @@
 COMMENT = Cython is an optimising static compiler for both the Python & the extended Cython programming languages.
-VERSION = 3.2.4
+VERSION = 3.2.8
 REVISION = 0
 CATEGORIES = python
 PKGNAME = cython
 HOMEPAGE = https://cython.org/
-ARCHIVE = 3.2.4.tar.gz
-LINK = https://github.com/cython/cython/archive/3.2.4.tar.gz
+ARCHIVE = 3.2.8.tar.gz
+LINK = https://github.com/cython/cython/archive/3.2.8.tar.gz
 SRCCD = archive
 BUILD = custom
-BUILDDIR = cython-3.2.4
+BUILDDIR = cython-3.2.8
 
 prepare:
 
