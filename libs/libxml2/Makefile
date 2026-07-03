@@ -1,6 +1,6 @@
 COMMENT = XML parsing library, version 2
-VERSION = 2.15.1
-REVISION = 0
+VERSION = 2.15.3
+REVISION = 1
 CATEGORIES = libs
 PKGNAME = libxml2
 HOMEPAGE = https://gitlab.gnome.org/GNOME/libxml2
@@ -9,7 +9,7 @@ LINK = https://download.gnome.org/sources/libxml2/2.15/${ARCHIVE}
 SRCCD = archive
 BUILD = meson
 BUILDDIR = libxml2-${VERSION}
-BUILD_OPTION = -Dicu=enabled -Dlegacy=enabled
+BUILD_OPTION = -Dicu=enabled -Dlegacy=enabled -Dpython=enabled
 
 prepare:
 
