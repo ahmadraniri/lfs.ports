@@ -17,10 +17,11 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 MAKEOPT =
 
 prepare:
-	for i in patch/*; do patch -p1 -d ${BUILDDIR} -i $(PWD)/$$i; done
-	autoreconf -fi ${BUILDDIR}
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/patch/fix-pkgconfig-version.patch
+	autoreconf -vif ${BUILDDIR}
 
 post_build:
+	rm -f package/usr/lib/*.la
 
 post-install:
 
