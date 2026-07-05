@@ -43,8 +43,8 @@ else ifeq ($(BUILD),make)
 else ifeq ($(BUILD),cmake)
 	@echo "Mode: Build Cmake"
 	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib \
-		-B build -G Ninja -S ${BUILDDIR} ${BUILD_OPTION}
-	cmake --build build
+		-B build -S ${BUILDDIR} ${BUILD_OPTION}
+	cmake --build build ${TARGET}
 else ifeq ($(BUILD),bmake)
 	@echo "Mode: Build BSD Make"
 	${AUTO_CONF}
