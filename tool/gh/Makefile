@@ -1,24 +1,24 @@
 COMMENT = CLI for dealing with GitHub
-VERSION = 2.83.2
+VERSION = 2.97.0
 REVISION = 0
 CATEGORIES = tool
 PKGNAME = gh
 HOMEPAGE = https://cli.github.com
-ARCHIVE = ${PKGNAME}_${VERSION}_linux_amd64.tar.gz
-LINK = https://github.com/cli/cli/releases/download/v${VERSION}/${ARCHIVE}
+ARCHIVE = github-cli-${VERSION}.tar.gz
+LINK = https://github.com/cli/cli/archive/v${VERSION}/${ARCHIVE}
 SRCCD = archive
-BUILD = custom
-BUILDDIR = ${PKGNAME}_${VERSION}_linux_amd64
+BUILD = make
+BUILDDIR = cli-${VERSION}
+MAKEOPT = GH_VERSION="v${VERSION}" bin/gh manpages completions
+MKINST = no
 
 prepare:
-	mkdir -p $(PWD)/pkg/usr/bin
-	mkdir -p $(PWD)/pkg/usr/share
-
-custom-build:
-	cp -r ${BUILDDIR}/bin/* $(PWD)/pkg/usr/bin/
-	cp -r ${BUILDDIR}/share/* $(PWD)/pkg/usr/share/
+	patch -d ${BUILDDIR} -i $(PWD)/no-ignore-goflags.patch
 
 post_build:
+	mkdir -v -p "package/usr/bin"
+	install -Dm755 ${BUILDDIR}/bin/gh package/usr/bin/gh
+	cp -r ${BUILDDIR}/share package/usr/
 
 post-install:
 
