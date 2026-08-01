@@ -1,5 +1,5 @@
 COMMENT = dhcpcd is an implementation of the DHCP client specified in RFC2131.
-VERSION = 10.3.0
+VERSION = 10.3.2
 REVISION = 0
 CATEGORIES = net
 PKGNAME = dhcpcd
