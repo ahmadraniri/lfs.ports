@@ -1,25 +1,29 @@
-COMMENT = GLab is an open source GitLab CLI tool that brings GitLab to your command line.
-VERSION = 1.105.0
+COMMENT = Open source GitLab CLI tool written in Go
+VERSION = 1.111.0
 REVISION = 0
-CATEGORIES = devel
+CATEGORIES = tool
 PKGNAME = glab
 HOMEPAGE = https://gitlab.com/gitlab-org/cli
-ARCHIVE = glab_1.105.0_linux_amd64.tar.gz
-LINK = https://gitlab.com/gitlab-org/cli/-/releases/v1.105.0/downloads/glab_1.105.0_linux_amd64.tar.gz
+ARCHIVE = cli-v${VERSION}.tar.gz
+LINK = https://gitlab.com/gitlab-org/cli/-/archive/v${VERSION}/cli-v${VERSION}.tar.gz
 SRCCD = archive
 BUILD = custom
-BUILDDIR = $(PWD)
+BUILDDIR = cli-v${VERSION}
+DATE = $(shell date -u "+%Y-%m-%d")
+OPTIONS = -X main.debugMode=false \
+	-X main.buildDate=${DATE} \
+	-X main.version=${VERSION}
 
 prepare:
-	mkdir -p pkg/usr/bin
-	mkdir -p pkg/usr/share/doc/glab
+	for i in patch/*; do patch -p1 -d ${BUILDDIR} -i $(PWD)/$$i; done
 
 custom-build:
-	install -Dm755 ${BUILDDIR}/bin/glab pkg/usr/bin/glab
-	for i in README.md LICENSE CHANGELOG.md; do \
-		install -Dm644 ${BUILDDIR}/$$i pkg/usr/share/doc/glab/$$i; done
+	cd ${BUILDDIR}; go build -ldflags "${OPTIONS}" \
+		-o build/bin/glab \
+		./cmd/glab/main.go
 
 post_build:
+	install -Dm755 ${BUILDDIR}/build/bin/glab -t pkg/usr/bin/
 
 post-install:
 
