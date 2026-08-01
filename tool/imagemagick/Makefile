@@ -1,19 +1,19 @@
 COMMENT = Collection of tools and libraries for many image formats
-VERSION = 7.1.2.17
-REVISION = 1
+VERSION = 7.1.2.25
+REVISION = 0
 CATEGORIES = tool
 PKGNAME = imagemagick
 HOMEPAGE = https://imagemagick.org/
-ARCHIVE = ImageMagick-7.1.2-17.tar.xz
-LINK = https://imagemagick.org/archive/releases/ImageMagick-7.1.2-17.tar.xz
+ARCHIVE = ImageMagick-7.1.2-25.tar.xz
+LINK = https://mirror.aarnet.edu.au/pub/imagemagick/ImageMagick-7.1.2-25.tar.xz
 SRCCD = archive
 BUILD = make
-BUILDDIR = ImageMagick-7.1.2-17
+BUILDDIR = ImageMagick-7.1.2-25
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
 	--libdir=/usr/lib \
-	--enable-static \
+	--disable-static \
 	--with-gslib \
 	--with-modules \
 	--with-perl \
