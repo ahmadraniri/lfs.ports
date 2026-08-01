@@ -6,15 +6,16 @@ CATEGORIES = libs
 PKGNAME = libx86emu
 HOMEPAGE = https://github.com/wfeldt/libx86emu
 ARCHIVE = ${VERSION}.tar.gz
-LINK = https://github.com/wfeldt/libx86emu
-SRCCD = git
+LINK = https://github.com/wfeldt/libx86emu/archive/${ARCHIVE}
+SRCCD = archive
 BUILD = make
-BUILDDIR = ${PKGNAME}
-MAKEFLAGS = "CFLAGS=-fPIC -Wall"
+BUILDDIR = ${PKGNAME}-${VERSION}
+MAKEFLAGS = CFLAGS=-fPIC -Wall
 MAKEOPT =	shared VERSION=${VERSION} MAJOR_VERSION=${MAJVER} LIBDIR=/usr/lib
 
 prepare:
-	git -C ${BUILDDIR} checkout 3.7
+	echo "${VERSION}" > ${BUILDDIR}/VERSION
+	rm ${BUILDDIR}/git2log
 
 post_build:
 
