@@ -1,14 +1,14 @@
 COMMENT = The shadow tool suite.
-VERSION = 4.19.4
+VERSION = 4.20.0
 REVISION = 0
 CATEGORIES = sys
 PKGNAME = shadow
 HOMEPAGE = https://pkg-shadow.alioth.debian.org
-ARCHIVE = shadow-4.19.4.tar.xz
-LINK = https://github.com/shadow-maint/shadow/releases/download/4.19.4/shadow-4.19.4.tar.xz
+ARCHIVE = shadow-${VERSION}.tar.xz
+LINK = https://github.com/shadow-maint/shadow/releases/download/${VERSION}/shadow-${VERSION}.tar.xz
 SRCCD = archive
 BUILD = make
-BUILDDIR = shadow-4.19.4
+BUILDDIR = shadow-${VERSION}
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
@@ -39,6 +39,7 @@ prepare:
 		-exec sed -i 's/getspnam\.3 / /' {} \;
 	find ${BUILDDIR}/man -type f -name Makefile.in \
 		-exec sed -i 's/passwd\.5 / /'   {} \;
+	patch -p1 -d ${BUILDDIR} -i $(PWD)/missing-header.patch
 
 post_build:
 	mv package/etc/pam.d/login package/etc/pam.d/login.new	
