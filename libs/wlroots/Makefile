@@ -1,5 +1,5 @@
 COMMENT = Modular Wayland compositor library
-VERSION = 0.20.1
+VERSION = 0.20.2
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = wlroots
