@@ -1,14 +1,14 @@
 COMMENT = Multimedia processing graphs
-VERSION = 1.6.2
+VERSION = 1.6.8
 REVISION = 0
 CATEGORIES = media
 PKGNAME = pipewire
 HOMEPAGE = https://pipewire.org/
-ARCHIVE = pipewire-1.6.2.tar.gz
-LINK = https://gitlab.freedesktop.org/PipeWire/pipewire/-/archive/1.6.2/pipewire-1.6.2.tar.gz
+ARCHIVE = pipewire-1.6.8.tar.gz
+LINK = https://gitlab.freedesktop.org/PipeWire/pipewire/-/archive/1.6.8/pipewire-1.6.8.tar.gz
 SRCCD = archive
 BUILD = meson
-BUILDDIR = pipewire-1.6.2
+BUILDDIR = pipewire-1.6.8
 BUILD_OPTION = -Dlibjack-path=/usr/lib \
 	-Dlibv4l2-path=/usr/lib \
 	-Ddocs=disabled \
