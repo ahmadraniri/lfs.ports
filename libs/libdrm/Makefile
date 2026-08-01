@@ -1,10 +1,10 @@
 COMMENT = Userspace interface to kernel DRM services
-VERSION = 2.4.131
-REVISION = 1
+VERSION = 2.4.134
+REVISION = 0
 CATEGORIES = libs
 PKGNAME = libdrm
 HOMEPAGE = https://cgit.freedesktop.org/mesa/drm/
-ARCHIVE = libdrm-2.4.131.tar.xz
+ARCHIVE = libdrm-2.4.134.tar.xz
 LINK = https://dri.freedesktop.org/libdrm/${ARCHIVE}
 SRCCD = archive
 BUILD = meson
