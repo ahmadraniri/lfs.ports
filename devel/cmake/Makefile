@@ -1,5 +1,5 @@
 COMMENT = Cross-platform open-source make system.
-VERSION = 4.3.3
+VERSION = 4.3.4
 _V= 4.3
 REVISION = 0
 CATEGORIES = devel
