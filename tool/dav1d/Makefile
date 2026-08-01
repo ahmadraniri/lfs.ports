@@ -1,14 +1,14 @@
 COMMENT = small and fast AV1 Decoder
-VERSION = 1.5.2
+VERSION = 1.5.4
 REVISION = 0
 CATEGORIES = tool
 PKGNAME = dav1d
 HOMEPAGE = https://code.videolan.org/videolan/dav1d
-ARCHIVE = dav1d-1.5.2.tar.bz2
-LINK = https://code.videolan.org/videolan/dav1d/-/archive/1.5.2/dav1d-1.5.2.tar.bz2
+ARCHIVE = dav1d-1.5.4.tar.bz2
+LINK = https://code.videolan.org/videolan/dav1d/-/archive/1.5.4/dav1d-1.5.4.tar.bz2
 SRCCD = archive
 BUILD = meson
-BUILDDIR = dav1d-1.5.2
+BUILDDIR = dav1d-1.5.4
 BUILD_OPTION = -Denable_tests=false \
 	-Denable_tools=true \
 	-Dfuzzing_engine=none \
