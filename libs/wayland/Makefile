@@ -1,5 +1,5 @@
 COMMENT = Protocols and protocol extensions complementing the Wayland core protocol
-VERSION = 1.25.0
+VERSION = 1.26.0
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = wayland
