@@ -1,14 +1,14 @@
 COMMENT = File type identification utility
-VERSION = 5.46
+VERSION = 5.48
 REVISION = 0
 CATEGORIES = tool
 PKGNAME = file
 HOMEPAGE = https://www.darwinsys.com/file/
-ARCHIVE = file-5.46.tar.gz
-LINK = https://astron.com/pub/file/file-5.46.tar.gz
+ARCHIVE = file-${VERSION}.tar.gz
+LINK = https://astron.com/pub/file/file-${VERSION}.tar.gz
 SRCCD = archive
 BUILD = make
-BUILDDIR = file-5.46
+BUILDDIR = file-${VERSION}
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
@@ -19,7 +19,6 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 MAKEOPT =
 
 prepare:
-	patch -p1 -d ${BUILDDIR} -i $(PWD)/file-5.46-pr-579-net147-fix-stack-overrun.patch
 
 post_build:
 
