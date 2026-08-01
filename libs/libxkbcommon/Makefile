@@ -1,5 +1,5 @@
 COMMENT = keyboard handling library
-VERSION = 1.13.1
+VERSION = 1.13.2
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = libxkbcommon
