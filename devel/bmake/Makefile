@@ -1,14 +1,15 @@
 COMMENT = Portable version of the NetBSD make build tool
-VERSION = 20260313
+VERSION = 20260704
 REVISION = 1
 CATEGORIES = devel
 PKGNAME = bmake
 HOMEPAGE = https://www.crufty.net/help/sjg/bmake.html
-ARCHIVE = bmake-20260313.tar.gz
-LINK = https://www.crufty.net/ftp/pub/sjg/bmake-20260313.tar.gz
+ARCHIVE = bmake-20260704.tar.gz
+LINK = https://www.crufty.net/ftp/pub/sjg/bmake-20260704.tar.gz
 SRCCD = archive
 BUILD = bmake
 BUILDDIR = bmake
+STRIP = no
 
 prepare:
 	cd ${BUILDDIR}; ./configure \
