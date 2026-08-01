@@ -1,6 +1,6 @@
 COMMENT = Modular Wayland compositor library
-VERSION = 0.21.cfc1cc765
-_WLR = fc1cc7656a54256e94e41ad4992b8b753daf4c8a
+VERSION = 0.21.c2cec06a4
+_WLR = 2cec06a4617cd9c712c6b35831cd1d75c41fe2af
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = wlroots_git
