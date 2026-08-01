@@ -1,14 +1,14 @@
 COMMENT = Unofficial Cmake-based build system for android command line utilities.
-VERSION = 35.0.2
+VERSION = 36.0.1
 REVISION = 0
 CATEGORIES = tool
 PKGNAME = android_tools
 HOMEPAGE = https://github.com/nmeum/android-tools
-ARCHIVE = android-tools-35.0.2.tar.xz
-LINK = https://github.com/nmeum/android-tools/releases/download/35.0.2/android-tools-35.0.2.tar.xz
+ARCHIVE = android-tools-${VERSION}.tar.xz
+LINK = https://github.com/nmeum/android-tools/releases/download/${VERSION}/android-tools-${VERSION}.tar.xz
 SRCCD = archive
 BUILD = cmake
-BUILDDIR = android-tools-35.0.2
+BUILDDIR = android-tools-${VERSION}
 BUILD_OPTION = -DANDROID_TOOLS_USE_BUNDLED_LIBUSB=ON -DCMAKE_BUILD_TYPE=None
 export LDFLAGS = -Wl,--copy-dt-needed-entries
 
