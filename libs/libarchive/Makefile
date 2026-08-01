@@ -1,5 +1,5 @@
 COMMENT = Multi-format archive and compression library.
-VERSION = 3.8.6
+VERSION = 3.8.9
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = libarchive
@@ -12,7 +12,7 @@ BUILDDIR = libarchive-${VERSION}
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--libdir=/usr/lib \
-	--enable-static=yes \
+	--enable-static=no \
 	--enable-shared=yes \
 	--without-xml2 \
 	--without-openssl \
