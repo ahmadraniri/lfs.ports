@@ -54,6 +54,4 @@ Mirrors :
 - [GitLab](https://gitlab.com/lidgnulinux/lfs-ports).
 - [Github](https://github.com/ahmadraniri/lfs.ports).
 - [Github alternative](https://github.com/ahmadraniri1994/lfs.ports). 
-- [darcs](https://hub.darcs.net/ahmadraniri1994/lports).
-- [darcs alternative](https://hub.darcs.net/lidgnulinux/lports).
 - [codeberg.org](https://codeberg.org/lidgnulinux/lfs.ports).
