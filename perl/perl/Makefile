@@ -1,14 +1,14 @@
 COMMENT = Larry Wall's Practical Extraction and Report Language
-VERSION = 5.42.0
+VERSION = 5.42.3
 REVISION = 0
 CATEGORIES = perl
 PKGNAME = perl
 HOMEPAGE = https://www.perl.org/
-ARCHIVE = perl-5.42.0.tar.xz
-LINK = https://www.cpan.org/src/5.0/perl-5.42.0.tar.xz
+ARCHIVE = perl-${VERSION}.tar.xz
+LINK = https://www.cpan.org/src/5.0/perl-${VERSION}.tar.xz
 SRCCD = archive
 BUILD = make
-BUILDDIR = perl-5.42.0
+BUILDDIR = perl-${VERSION}
 AUTO_CONF = (cd ${BUILDDIR} && sh ./Configure -des \
 	-Dprefix=/usr \
 	-D vendorprefix=/usr \
@@ -27,8 +27,6 @@ MAKEOPT = BUILD_ZLIB=False BUILD_BZIP2=0
 
 prepare:
 	for i in patch/*; do patch -p1 -d ${BUILDDIR} -i $(PWD)/$$i; done
-
-custom-build:
 
 post_build:
 
