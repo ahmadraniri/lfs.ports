@@ -1,5 +1,5 @@
 COMMENT = somewm - AwesomeWM for Wayland
-VERSION = 1.4.2
+VERSION = 1.4.3
 REVISION = 0
 CATEGORIES = wayland
 PKGNAME = somewm
@@ -14,7 +14,7 @@ BUILD_OPTION = -Dtest_pam=false \
 	-Dbench=false
 
 prepare:
-	patch -d ${BUILDDIR} -i $(PWD)/unsupported_dlvsym_musl_fix.diff
+	patch -d ${BUILDDIR} -i $(PWD)/unsupported_dlvsym_musl_fix-1.4.3.diff
 
 post_build:
 
