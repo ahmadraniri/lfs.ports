@@ -1,14 +1,14 @@
 COMMENT = Small utility to modify the dynamic linker and RPATH of ELF executables
-VERSION = 0.18.0
+VERSION = 0.19.1
 REVISION = 0
 CATEGORIES = tool
 PKGNAME = patchelf
 HOMEPAGE = https://nixos.org/patchelf.html
-ARCHIVE = patchelf-0.18.0.tar.gz
-LINK = https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0.tar.gz
+ARCHIVE = patchelf-${VERSION}.tar.gz
+LINK = https://github.com/NixOS/patchelf/releases/download/${VERSION}/patchelf-${VERSION}.tar.gz
 SRCCD = archive
 BUILD = make
-BUILDDIR = patchelf-0.18.0
+BUILDDIR = patchelf-${VERSION}
 AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 	--prefix=/usr \
 	--sysconfdir=/etc \
@@ -17,7 +17,6 @@ AUTO_CONF = (cd ${BUILDDIR} && ./configure \
 MAKEOPT =
 
 prepare:
-	for i in patch/*; do patch -p1 -d ${BUILDDIR} -i $(PWD)/$$i; done
 
 post_build:
 
