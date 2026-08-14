@@ -1,14 +1,14 @@
 COMMENT = X.Org X servers
-VERSION = 21.1.23
+VERSION = 21.1.24
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = xorg_server
 HOMEPAGE = https://www.x.org/wiki
-ARCHIVE = xorg-server-21.1.23.tar.xz
-LINK = https://www.x.org/releases/individual/xserver/xorg-server-21.1.23.tar.xz
+ARCHIVE = xorg-server-${VERSION}.tar.xz
+LINK = https://www.x.org/releases/individual/xserver/xorg-server-${VERSION}.tar.xz
 SRCCD = archive
 BUILD = meson
-BUILDDIR = xorg-server-21.1.23
+BUILDDIR = xorg-server-${VERSION}
 _FONTROOT="/usr/share/fonts"
 BUILD_OPTION = -Dxorg=true \
 	-Dxephyr=true \
