@@ -13,7 +13,6 @@ MAKEOPT = GH_VERSION="v${VERSION}" bin/gh manpages completions
 MKINST = no
 
 prepare:
-	patch -d ${BUILDDIR} -i $(PWD)/no-ignore-goflags.patch
 
 post_build:
 	mkdir -v -p "package/usr/bin"
