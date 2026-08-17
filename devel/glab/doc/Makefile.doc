@@ -1,0 +1,25 @@
+COMMENT = glab manual page
+VERSION = 1.113.0
+REVISION = 0
+CATEGORIES = doc
+PKGNAME = glab_manual
+HOMEPAGE = https://gitlab.com/gitlab-org/cli
+ARCHIVE = cli-v${VERSION}.tar.gz
+LINK = https://gitlab.com/gitlab-org/cli/-/archive/v${VERSION}/cli-v${VERSION}.tar.gz
+SRCCD = archive
+BUILD = custom
+BUILDDIR = cli-v${VERSION}
+STRIP = no
+
+prepare:
+
+custom-build:
+	mkdir -p ${BUILDDIR}/build/man
+	cd ${BUILDDIR}; go run ./cmd/gen-docs/docs.go --manpage --path ./build/man
+
+post_build:
+	install -Dm644 ${BUILDDIR}/build/man/*.1 -t pkg/usr/share/man/man1/
+
+post-install:
+
+include /usr/share/mk/lfs.port.mk

@@ -1,0 +1,29 @@
+COMMENT = bash completion for glab 
+VERSION = 1.113.0
+REVISION = 0
+CATEGORIES = misc
+PKGNAME = glab_completion
+HOMEPAGE = https://gitlab.com/gitlab-org/cli
+ARCHIVE = cli-v${VERSION}.tar.gz
+LINK = https://gitlab.com/gitlab-org/cli/-/archive/v${VERSION}/cli-v${VERSION}.tar.gz
+SRCCD = archive
+BUILD = custom
+BUILDDIR = cli-v${VERSION}
+STRIP = no
+
+prepare:
+
+custom-build:
+	cd ${BUILDDIR}; mkdir -p build/shell 
+	cd ${BUILDDIR}; glab completion --shell bash > build/shell/bash.comp 
+	cd ${BUILDDIR}; glab completion --shell zsh > build/shell/zsh.comp 
+
+post_build:
+	install -Dm644 ${BUILDDIR}/build/shell/bash.comp \
+		pkg/usr/share/bash-completion/completions/glab.bash
+	install -Dm644 ${BUILDDIR}/build/shell/zsh.comp \
+		pkg/usr/share/zsh/site-functions/_glab
+
+post-install:
+
+include /usr/share/mk/lfs.port.mk
