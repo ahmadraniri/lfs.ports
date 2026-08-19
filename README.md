@@ -8,6 +8,7 @@ Ports package build collection for LFS / linux distro in general. It's a collect
 ## How to use it ?
 
 You could easily use it, but before that, you should have these requirements :
+
 - wget, to download source code. You could change it with your tool downloader.
 - build tools, like compiler (I use gcc mainly), make, meson, cmake, bmake, muon and zig.
 - tar, to create tar.gz package archive.
@@ -51,6 +52,7 @@ note : For more info about `mk`, you could read its documentation [here](https:/
 Main repository : [Github](https://github.com/lidgnulinux/lfs.ports).
 
 Mirrors :
+
 - [GitLab](https://gitlab.com/lidgnulinux/lfs-ports).
 - [Github](https://github.com/ahmadraniri/lfs.ports).
 - [Github alternative](https://github.com/ahmadraniri1994/lfs.ports). 
