@@ -59,4 +59,4 @@ Mirrors :
 - [codeberg.org](https://codeberg.org/lidgnulinux/lfs.ports).
 - [sourcehut](https://git.sr.ht/~ahmadraniri/lports).
 - [bitbucket](https://bitbucket.org/lidgorg/lfs.ports).
-- [git.gnu.org.ua](https://git.gnu.org.ua/lfs_ports.git), cloneable only, can't be previewed.
+- [git.gnu.org.ua](https://git.gnu.org.ua/lfs_ports.git).
