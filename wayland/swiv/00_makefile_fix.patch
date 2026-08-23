@@ -1,0 +1,24 @@
+--- swiv/Makefile	2026-08-23 14:58:28.018123241 +0700
++++ swiv/Makefile.new	2026-08-23 14:58:22.058122971 +0700
+@@ -8,7 +8,7 @@
+ PROTO_XDG_CLIENT_C = ${PROTO_DIR}/xdg-shell-protocol.c
+ 
+ PKG_CFLAGS != $(PKG_CONFIG) --cflags wayland-client pixman-1 xkbcommon 2>/dev/null || :
+-PKG_LIBS != $(PKG_CONFIG) --libs wayland-client pixman-1 xkbcommon 2>/dev/null || :
++PKG_LIBS != $(PKG_CONFIG) --libs wayland-client pixman-1 xkbcommon libdrm fontconfig wld 2>/dev/null || :
+ 
+ CFLAGS ?= -O2
+ CFLAGS += -std=c99 -Wall -Wextra -Wpedantic
+@@ -50,10 +50,10 @@
+ thumbcache.o: thumbcache.c thumbcache.h image.h
+ 
+ .c.o:
+-	${CC} ${CFLAGS} ${CPPFLAGS} -c -o $@ $<
++	${CC} ${CFLAGS} ${PKG_CFLAGS} ${CPPFLAGS} -c -o $@ $<
+ 
+ swiv: $(OBJECTS)
+-	${CC} ${LDFLAGS} -o $@ ${OBJECTS} ${LDLIBS}
++	${CC} ${LDFLAGS} -o $@ ${OBJECTS} ${LDLIBS} ${PKG_LIBS} ${PKG_CFLAGS}
+ 
+ clean:
+ 	rm -f $(OBJECTS) swiv ${PROTO_XDG_CLIENT_H} ${PROTO_XDG_CLIENT_C}
