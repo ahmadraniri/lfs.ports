@@ -39,7 +39,7 @@ ifeq ($(BUILD),meson)
 else ifeq ($(BUILD),make)
 	@echo "Mode: Build Make"
 	${AUTO_CONF}
-	make -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} ${MAKEOPT}
+	make -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} ${MAKEOPT}
 else ifeq ($(BUILD),cmake)
 	@echo "Mode: Build Cmake"
 	cmake -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib \
@@ -48,7 +48,7 @@ else ifeq ($(BUILD),cmake)
 else ifeq ($(BUILD),bmake)
 	@echo "Mode: Build BSD Make"
 	${AUTO_CONF}
-	bmake -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} ${MAKEOPT}
+	bmake -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} ${MAKEOPT}
 else ifeq ($(BUILD),muon)
 	@echo "Mode: Build Muon"
 	mkdir b
@@ -86,7 +86,7 @@ else ifeq ($(BUILD),make)
   ifeq ($(MKINST),no)
 		@echo "No need to install"
   else
-		make -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} \
+		make -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} \
 			${MAKEOPT} DESTDIR=${DESTDIR} install
   endif
 	install  -Dm644 $(PWD)/Makefile $(PWD)/package/var/lib/mk/${PACKAGE}.mk
@@ -105,7 +105,7 @@ else ifeq ($(BUILD),bmake)
   ifeq ($(MKINST),no)
 		@echo "No need to install"
   else
-		bmake -j4 -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} \
+		bmake -C ${BUILDDIR} PREFIX=${PREFIX} ${MAKEFLAGS} \
 			${MAKEOPT} DESTDIR=${DESTDIR} install
   endif
 	install  -Dm644 $(PWD)/Makefile $(PWD)/package/var/lib/mk/${PACKAGE}.mk
