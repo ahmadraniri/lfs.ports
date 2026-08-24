@@ -1,0 +1,78 @@
+--- DWC-4f07f6dcac92aa8c24b29f283b0db387fafa7bdc/config.def.h	2026-07-14 20:07:53.000000000 +0700
++++ DWC-4f07f6dcac92aa8c24b29f283b0db387fafa7bdc/config.def.h.new	2026-08-24 06:43:33.672119533 +0700
+@@ -3,6 +3,7 @@
+ #define CONFIG_H
+ 
+ #include <xkbcommon/xkbcommon-keysyms.h>
++#include <libinput.h>
+ 
+ /* appearance */
+ static const unsigned int borderpx       = 1; /* border pixel of windows */
+@@ -14,6 +15,21 @@
+ static const uint32_t focuscolor         = 0xff005577;
+ static const uint32_t urgentcolor        = 0xff0000ff;
+ 
++static const int tap_to_click = 1;
++static const int tap_and_drag = 1;
++static const int drag_lock = 1;
++static const int natural_scrolling = 0;
++static const int disable_while_typing = 1;
++static const int left_handed = 0;
++static const int middle_button_emulation = 0;
++
++static const enum libinput_config_scroll_method scroll_method = LIBINPUT_CONFIG_SCROLL_2FG;
++static const enum libinput_config_click_method click_method = LIBINPUT_CONFIG_CLICK_METHOD_BUTTON_AREAS;
++static const uint32_t send_events_mode = LIBINPUT_CONFIG_SEND_EVENTS_ENABLED;
++static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
++static const double accel_speed = 0.0;
++static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TAP_MAP_LRM;
++
+ static const char *const autostart[] = {
+     "swall", "-m", "scaled", "~/wallpapers/wallpaper.png", NULL,
+     "foot", "--server", NULL,
+--- DWC-4f07f6dcac92aa8c24b29f283b0db387fafa7bdc/dwc.c	2026-07-14 20:07:53.000000000 +0700
++++ DWC-4f07f6dcac92aa8c24b29f283b0db387fafa7bdc/dwc.c.new	2026-08-24 06:45:17.965126407 +0700
+@@ -889,7 +889,42 @@
+     _log(stderr, "new_window=%p\n", (void *)win);
+ }
+ 
+-void new_device(struct libinput_device *dev) { (void)dev; }
++void new_device(struct libinput_device *dev)
++{ 
++ (void)dev;
++	if (libinput_device_config_tap_get_finger_count(dev)) {
++		libinput_device_config_tap_set_enabled(dev, tap_to_click);
++		libinput_device_config_tap_set_drag_enabled(dev, tap_and_drag);
++		libinput_device_config_tap_set_drag_lock_enabled(dev, drag_lock);
++		libinput_device_config_tap_set_button_map(dev, button_map);
++	}
++
++	if (libinput_device_config_scroll_has_natural_scroll(dev))
++		libinput_device_config_scroll_set_natural_scroll_enabled(dev, natural_scrolling);
++
++	if (libinput_device_config_dwt_is_available(dev))
++		libinput_device_config_dwt_set_enabled(dev, disable_while_typing);
++
++	if (libinput_device_config_left_handed_is_available(dev))
++		libinput_device_config_left_handed_set(dev, left_handed);
++
++	if (libinput_device_config_middle_emulation_is_available(dev))
++		libinput_device_config_middle_emulation_set_enabled(dev, middle_button_emulation);
++
++	if (libinput_device_config_scroll_get_methods(dev) != LIBINPUT_CONFIG_SCROLL_NO_SCROLL)
++		libinput_device_config_scroll_set_method(dev, scroll_method);
++
++	if (libinput_device_config_click_get_methods(dev) != LIBINPUT_CONFIG_CLICK_METHOD_NONE)
++		libinput_device_config_click_set_method(dev, click_method);
++
++	if (libinput_device_config_send_events_get_modes(dev))
++		libinput_device_config_send_events_set_mode(dev, send_events_mode);
++
++	if (libinput_device_config_accel_is_available(dev)) {
++		libinput_device_config_accel_set_profile(dev, accel_profile);
++		libinput_device_config_accel_set_speed(dev, accel_speed);
++	}
++}
+ 
+ void quit(void *data, uint32_t time, uint32_t value, uint32_t state) {
+     (void)data;
