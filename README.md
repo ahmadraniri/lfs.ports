@@ -31,6 +31,7 @@ After you have those requirements, let's build our package !
 	```
 
 	Explanation :
+
 	- **make download**, download source code.
 	- **make extract**, extract source code.
 	- **make prepare**, prepare build, like patching (if needed), edit the source code, etc.
