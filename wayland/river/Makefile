@@ -1,46 +1,25 @@
 COMMENT = a non-monolithic Wayland compositor
-VERSION = 0.4.2
+VERSION = 0.4.2.c576a58da
+_SHA = 576a58da94ef25bc6a4efabeebaf8c8ffe7414d3
 REVISION = 0
 CATEGORIES = wayland
 PKGNAME = river
 HOMEPAGE = https://isaacfreund.com/software/river/
-ARCHIVE = v0.4.2.tar.gz
-LINK = https://codeberg.org/river/river/archive/v0.4.2.tar.gz
+ARCHIVE = ${_SHA}.tar.gz
+LINK = https://codeberg.org/river/river/archive/${ARCHIVE}
 SRCCD = archive
 BUILD = zig
 BUILDDIR = river
-ZIGPATH = zig-x86_64-linux-0.15.2
+ZIGPATH = /usr/share/zig-0.16.0
 BUILD_OPTION = --summary all \
 	--prefix /usr \
 	--search-prefix /usr \
-	--global-cache-dir $(PWD)/zig-global-cache \
-	--system $(PWD)/zig-global-cache/p \
 	-Dtarget=x86_64-linux-musl \
 	-Doptimize=ReleaseSafe \
 	-Dxwayland
 
-
-get_deps_archive:
-	wget -c https://codeberg.org/ifreund/zig-pixman/archive/v0.3.0.tar.gz \
-		-O zig-pixman-0.3.0.tar.gz
-	wget -c https://codeberg.org/ifreund/zig-wayland/archive/v0.5.0.tar.gz \
-		-O zig-wayland-0.5.0.tar.gz
-	wget -c https://codeberg.org/ifreund/zig-wlroots/archive/v0.20.0.tar.gz \
-		-O zig-wlroots-0.20.0.tar.gz
-	wget -c https://codeberg.org/ifreund/zig-xkbcommon/archive/v0.4.0.tar.gz \
-		-O zig-xkbcommon-0.4.0.tar.gz
-
 prepare:
 	patch -p1 -d ${BUILDDIR} -i $(PWD)/out_of_source_adjustment.patch
-	mkdir zig-global-cache
-	${ZIGPATH}/zig fetch --global-cache-dir ./zig-global-cache \
-		zig-pixman-0.3.0.tar.gz
-	${ZIGPATH}/zig fetch --global-cache-dir ./zig-global-cache \
-		zig-wayland-0.5.0.tar.gz
-	${ZIGPATH}/zig fetch --global-cache-dir ./zig-global-cache \
-		zig-wlroots-0.20.0.tar.gz
-	${ZIGPATH}/zig fetch --global-cache-dir ./zig-global-cache \
-		zig-xkbcommon-0.4.0.tar.gz
 
 post_build:
 	cp -a build/* pkg
