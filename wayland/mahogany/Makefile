@@ -1,5 +1,5 @@
 COMMENT = a tiling window manager for Wayland modeled after StumpWM 
-VERSION = 0.1.c3619b67
+VERSION = 0.1.ca59a2001
 REVISION = 0
 CATEGORIES = wayland
 PKGNAME = mahogany
