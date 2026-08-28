@@ -1,5 +1,5 @@
 COMMENT = Unprivileged sandboxing tool
-VERSION = 0.11.1
+VERSION = 0.12.0
 REVISION = 0
 CATEGORIES = tool
 PKGNAME = bubblewrap
@@ -9,7 +9,8 @@ ARCHIVE = v${VERSION}.tar.gz
 SRCCD = archive
 BUILD = meson
 BUILDDIR = bubblewrap-${VERSION}
-BUILD_OPTION = "-Drequire_userns=true"
+BUILD_OPTION = -Dtests=false
+export CFLAGS = -include /usr/include/linux/limits.h
 
 prepare:
 
