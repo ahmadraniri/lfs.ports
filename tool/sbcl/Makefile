@@ -1,6 +1,6 @@
 COMMENT = Steel Bank Common Lisp
-VERSION = 2.6.7
-REVISION = 1
+VERSION = 2.6.8
+REVISION = 0
 CATEGORIES = tool
 PKGNAME = sbcl
 HOMEPAGE = https://www.sbcl.org/
