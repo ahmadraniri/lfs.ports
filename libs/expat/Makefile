@@ -1,20 +1,16 @@
 COMMENT = XML Parser library written in C
-VERSION = 2.8.2
+VERSION = 2.8.3
+_V = $(shell sed 'y/./_/' <<< ${VERSION})
 REVISION = 0
 CATEGORIES = libs
 PKGNAME = expat
 HOMEPAGE = https://libexpat.github.io/
-ARCHIVE = expat-2.8.2.tar.bz2
-LINK = https://downloads.sourceforge.net/project/expat/expat/2.8.2/expat-2.8.2.tar.bz2
+ARCHIVE = R_${_V}.tar.gz
+LINK = https://github.com/libexpat/libexpat/archive/refs/tags/${ARCHIVE}
 SRCCD = archive
-BUILD = make
-BUILDDIR = expat-2.8.2
-BUILD_OPTION =
-AUTO_CONF = (cd ${BUILDDIR} && ./configure --prefix=/usr \
-	--sysconfdir=/etc \
-	--libdir=/usr/lib \
-	--enable-static \
-	--build=x86_64-pc-linux-musl)
+BUILD = cmake
+BUILDDIR = libexpat-R_${_V}/expat
+BUILD_OPTION = -DCMAKE_BUILD_TYPE=none -Wno-dev
 
 prepare:
 
