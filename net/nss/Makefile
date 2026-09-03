@@ -1,12 +1,12 @@
 COMMENT = Network security services.
-VERSION = 3.125
-_VERSION = 3_125
+VERSION = 3.128
+_V = $(shell sed 'y/./_/' <<< ${VERSION})
 REVISION = 0
 CATEGORIES = net
 PKGNAME = nss
 HOMEPAGE = https://developer.mozilla.org/en-US/docs/Mozilla/Projects/NSS
-ARCHIVE = nss-3.125.tar.gz
-LINK = https://archive.mozilla.org/pub/security/nss/releases/NSS_3_125_RTM/src/${ARCHIVE}
+ARCHIVE = nss-${VERSION}.tar.gz
+LINK = https://archive.mozilla.org/pub/security/nss/releases/NSS_${_V}_RTM/src/${ARCHIVE}
 SRCCD = archive
 BUILD = make
 BUILDDIR = nss-${VERSION}/nss
